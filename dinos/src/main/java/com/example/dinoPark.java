@@ -1,7 +1,6 @@
 //modelo
 package com.example;
 
-import java.util.Set;
 
 public class dinoPark {
 
@@ -10,13 +9,14 @@ public class dinoPark {
     };
 
     public String[] listDinos() {
+        return new String[] {" "};
 
     }
 
-    public Set<String> getZones() {
+    public String[] getZones() {
+        return new String[] {" "};
 
     }
 
-    public 
 
 }
