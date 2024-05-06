@@ -1,22 +1,20 @@
 //modelo
 package com.example;
 
+import java.util.Set;
 
 public class dinoPark {
 
-    public void newAttraction(String nombre, String dino, String Zona, int capacidad, int edad_min) {
+    public void newAttraction() {
 
     };
 
-    public String[] listDinos() {
-        return new String[] {" "};
+/*     public String[] listDinos() {
 
     }
 
-    public String[] getZones() {
-        return new String[] {" "};
+    public Set<String> getZones() {
 
-    }
-
+    } */
 
 }

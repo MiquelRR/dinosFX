@@ -5,64 +5,71 @@ import java.util.HashMap;
 import com.example.accesdb.Accesdb;
 
 public class Atraccion {
-    public static HashMap<Integer,Atraccion> all = new HashMap<>();
+    public static HashMap<Integer, Atraccion> all = new HashMap<>();
     static {
         for (String[] reg : Accesdb.lligTaula("Atraccion")) {
+            Dinosaurio dino=(reg[2]==null)?null:Dinosaurio.all.getOrDefault((Integer.parseInt(reg[2])),null);
             Atraccion atr = new Atraccion(
-                reg[3],
-            Dinosaurio.all.get((Integer.parseInt(reg[2]))),
-            Integer.parseInt(reg[4]),
-            Integer.parseInt(reg[5]),
-            Zona.all.get(Integer.parseInt(reg[1]))
-            );
-            all.put(Integer.parseInt(reg[0]),atr);
+                    reg[3],
+                    dino,
+                    Integer.parseInt(reg[4]),
+                    Integer.parseInt(reg[5]),
+                    Zona.all.get(Integer.parseInt(reg[1])));
+            all.put(Integer.parseInt(reg[0]), atr);
         }
     }
 
-    //sobrecàrrega del metod
+    // sobrecàrrega del metod
     public static void addAtraccion(String nombre, String zona, int capacidad, int edad_min) {
         Atraccion atr;
-        atr=new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
+        atr = new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
         addAtraccion(atr);
     };
 
-    //sobrecàrrega del metod
+    // sobrecàrrega del metod
     public static void addAtraccion(String nombre, String dino, String zona, int capacidad, int edad_min) {
         Atraccion atr;
-        if (dino!=null)
-        atr=new Atraccion(nombre, Dinosaurio.getDinoFromName(dino), capacidad, edad_min, Zona.getZonaFromName(zona));
-        else atr=new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
+        if (dino != null)
+            atr = new Atraccion(nombre, Dinosaurio.getDinoFromName(dino), capacidad, edad_min,
+                    Zona.getZonaFromName(zona));
+        else
+            atr = new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
         addAtraccion(atr);
     };
 
-    public static void addAtraccion(Atraccion atr){
+    public static void addAtraccion(Atraccion atr) {
         Integer max = Atraccion.all.keySet().stream()
-                                 .mapToInt(Integer::intValue)
-                                 .max()
-                                 .orElse(0);
+                .mapToInt(Integer::intValue)
+                .max()
+                .orElse(0);
         max++;
-        Atraccion.all.put(max,atr);
-        /* int dinoId;
-        if (atr.dino==null){
-            dinoId=0;
+        Atraccion.all.put(max, atr);
+ 
+        if (atr.dino == null) {
+            Accesdb.agrega("Atraccion", new Object[] {
+                    "id_atraccion", max,
+                    "id_zona", atr.getZona().getUbicacionId(),
+                    "nombre", atr.getNombre(),
+                    "capacidad", atr.getCapacidad(),
+                    "edad_minima", atr.getEdad() });            
         } else {
-            dinoId=atr.getDino().getDinoId();
-        } */
-        int dinoId=(atr.dino==null)?0:atr.getDino().getDinoId();
-        Accesdb.agrega("Atraccion",new Object[] {
-            "id_atraccion",max,
-            "id_zona",atr.getZona().getUbicacionId(),
-            "id_dino",dinoId,
-            "nombre",atr.getNombre(),
-            "capacidad",atr.getCapacidad(),
-            "edad_minima",atr.getEdad()});
-        
+            Accesdb.agrega("Atraccion", new Object[] {
+                    "id_atraccion", max,
+                    "id_zona", atr.getZona().getUbicacionId(),
+                    "id_dino", atr.getDino().getDinoId(),
+                    "nombre", atr.getNombre(),
+                    "capacidad", atr.getCapacidad(),
+                    "edad_minima", atr.getEdad() });
+        }
+
     }
+
     private String nombre;
     private Dinosaurio dino;
     private int capacidad;
     private int edad;
     private Zona zona;
+
     public Atraccion(String nombre, Dinosaurio dino, int capacidad, int edad, Zona zona) {
         this.nombre = nombre;
         this.dino = dino;
@@ -70,49 +77,61 @@ public class Atraccion {
         this.edad = edad;
         this.zona = zona;
     }
+
     public Atraccion(String nombre, int capacidad, int edad, Zona zona) {
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.edad = edad;
         this.zona = zona;
+        this.dino = null;
     }
 
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public Dinosaurio getDino() {
         return dino;
     }
+
     public void setDino(Dinosaurio dino) {
         this.dino = dino;
     }
+
     public int getCapacidad() {
         return capacidad;
     }
+
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+
     public int getEdad() {
         return edad;
     }
+
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
     public Zona getZona() {
         return zona;
     }
+
     public void setZona(Zona zona) {
         this.zona = zona;
     }
+
     public static void asignarDino(Dinosaurio dino, Atraccion atrac) {
         atrac.setDino(dino);
     }
-    
-    public static void asignarZona(Zona zona, Atraccion atrac){
+
+    public static void asignarZona(Zona zona, Atraccion atrac) {
         zona.addAtraccion(atrac);
     }
-    
+
 }
