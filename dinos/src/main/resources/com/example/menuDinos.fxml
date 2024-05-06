@@ -8,14 +8,14 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="340.0" maxWidth="600.0" minHeight="340.0" minWidth="600.0" onMouseReleased="#exit" prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.menuController">
    <children>
       <ImageView fitHeight="194.0" fitWidth="258.0" layoutX="300.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@dibuix.png" />
+            <Image url="@images/dibuix.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="60.0" prefWidth="246.0" text="DinoDAM">
@@ -47,10 +47,6 @@
       <Button layoutX="65.0" layoutY="122.0" mnemonicParsing="false" onAction="#nuevaAtraccion" prefHeight="48.0" prefWidth="197.0" text="Nueva Atraccion" />
       <Button layoutX="65.0" layoutY="184.0" mnemonicParsing="false" onAction="#listaDinos" prefHeight="48.0" prefWidth="197.0" text="Lista Dinosaurios" />
       <Button layoutX="65.0" layoutY="244.0" mnemonicParsing="false" onAction="#listaZonas" prefHeight="48.0" prefWidth="197.0" text="Lista Zonas" />
-      <ImageView fitHeight="60.0" fitWidth="67.0" layoutX="402.0" layoutY="244.0" onMouseReleased="#exit" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@exit.png" />
-         </image>
-      </ImageView>
+      <SVGPath content="m 57.903284,51.750222 h 24.868419 v 9.369774 L 102.247,44.722956 82.771703,27.991346 V 38.364917 H 57.903284 V 51.750222 M 37.99798,79.26688 h 24.730714 c 9.129522,0 16.557006,-7.478062 16.557006,-16.669857 v -4.009208 h -8.3833 v 4.009208 c 0,4.53778 -3.66667,8.229393 -8.173706,8.229393 H 37.99798 c -4.507035,0 -8.173706,-3.691613 -8.173706,-8.229393 V 26.303254 c 0,-4.537782 3.666671,-8.229396 8.173706,-8.229396 h 24.730714 c 4.507036,0 8.173706,3.691614 8.173706,8.229396 v 4.853212 h 8.3833 v -4.853212 c 0,-9.191707 -7.427484,-16.6698578 -16.557006,-16.6698578 H 37.99798 c -9.129521,0 -16.557006,7.4781508 -16.557006,16.6698578 v 36.293769 c 0,9.191795 7.427485,16.669857 16.557006,16.669857" fill="#793333" layoutX="377.0" layoutY="234.0" onMouseReleased="#exit" />
    </children>
 </Pane>

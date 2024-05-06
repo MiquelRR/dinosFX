@@ -1,6 +1,8 @@
 package com.example.clases;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.example.accesdb.Accesdb;
 
@@ -8,50 +10,70 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Dinosaurio {
-    public static HashMap<Integer,Dinosaurio> all = new HashMap<>();
-    static{
+    public static HashMap<Integer, Dinosaurio> all = new HashMap<>();
+    static {
         for (String[] reg : Accesdb.lligTaula("Dinosaurio")) {
             Dinosaurio dino = new Dinosaurio(reg[1], reg[2], reg[3], reg[4]);
-            all.put(Integer.parseInt(reg[0]),dino);
+            all.put(Integer.parseInt(reg[0]), dino);
         }
     }
 
-    public Dinosaurio(String nombre, String tamano, String alimentacion, String tipo){
+    public static List<String> getDinosNames() {
+        List<String> nameList = new ArrayList<String>();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            nameList.add(dino.nombre.getValue());
+        }
+        return nameList;
+    }
+    public static Dinosaurio getDinoFromName(String dinoname){
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            if(dino.nombre.getValue().equals(dinoname)) return dino;
+        }
+        return null;
+    }
+
+    public static Integer getIdFromName(String name){
+        for (Integer id : Dinosaurio.all.keySet()) {
+            if (Dinosaurio.all.get(id).nombre.getValue().equals(name)) return id;
+        }
+        return null;
+    }
+
+    public Dinosaurio(String nombre, String tamano, String alimentacion, String tipo) {
         this.setNombre(nombre);
         this.setTamano(tamano);
         this.setAlimentacion(alimentacion);
         this.setTipo(tipo);
     }
 
-
-
-    public static void addDino(Dinosaurio dino){
+    public static void addDino(Dinosaurio dino) {
         Integer max = Dinosaurio.all.keySet().stream()
-                                 .mapToInt(Integer::intValue)
-                                 .max()
-                                 .orElse(0);
+                .mapToInt(Integer::intValue)
+                .max()
+                .orElse(0);
         max++;
-        Dinosaurio.all.put(max,dino);
-        Accesdb.agrega("Dinosaurio",new Object[] {
-            "id_dino",max,
-            "nombre",dino.getNombre(),
-            "tamanyo",dino.getTamano(),
-            "alimentacion",dino.getAlimentacion(),
-            "tipo",dino.getTipo()});
+        Dinosaurio.all.put(max, dino);
+        Accesdb.agrega("Dinosaurio", new Object[] {
+                "id_dino", max,
+                "nombre", dino.getNombre(),
+                "tamanyo", dino.getTamano(),
+                "alimentacion", dino.getAlimentacion(),
+                "tipo", dino.getTipo() });
 
     }
-    public Integer getDinoId(){
-        Integer found=null;
-        for (Integer id : Zona.all.keySet()){
-            if (Dinosaurio.all.get(id)==this){
-                found=id;
-                break;             
+
+    public Integer getDinoId() {
+        Integer found = null;
+        for (Integer id : Zona.all.keySet()) {
+            if (Dinosaurio.all.get(id) == this) {
+                found = id;
+                break;
             }
         }
         return found;
     }
 
-    private StringProperty nombre;
+    private SimpleStringProperty nombre;
 
     public void setNombre(String value) {
         nombreProperty().set(value);

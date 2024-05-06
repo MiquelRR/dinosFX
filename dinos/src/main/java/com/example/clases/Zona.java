@@ -14,6 +14,28 @@ public class Zona {
             all.put(Integer.parseInt(reg[0]),z);
         }
     }
+    public static List<String> getZonasNames(){
+        List<String> lista = new ArrayList<>();
+        for (Zona z : Zona.all.values()) {
+            lista.add(z.nombre);
+        }
+        return lista;
+    }
+    public static Zona getZonaFromName(String name){
+        for (Zona z : Zona.all.values()) {
+            if(z.getNombre().equals(name)) return z;            
+        }
+        return null;
+
+    }
+
+    public static Integer getIdFromName(String name){
+        for (Integer id : Zona.all.keySet()) {
+            if (Zona.all.get(id).nombre.equals(name)) return id;
+        }
+        return null;
+    }
+
     public static void addZona(Zona zona){
         Integer max = Zona.all.keySet().stream()
                                  .mapToInt(Integer::intValue)
@@ -21,7 +43,7 @@ public class Zona {
                                  .orElse(0);
         max++;
         Zona.all.put(max,zona);
-        Accesdb.agrega("Dinosaurio",new Object[] {
+        Accesdb.agrega("Zona",new Object[] {
             "id_zona",max,
             "nombre",zona.getNombre(),
             "ubicacion",zona.getUbicacion()});

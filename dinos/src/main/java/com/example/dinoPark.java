@@ -4,7 +4,7 @@ package com.example;
 
 public class dinoPark {
 
-    public void newAttraction() {
+    public void newAttraction(String nombre, String dino, String Zona, int capacidad, int edad_min) {
 
     };
 

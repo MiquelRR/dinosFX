@@ -18,6 +18,23 @@ public class Atraccion {
             all.put(Integer.parseInt(reg[0]),atr);
         }
     }
+
+    //sobrecàrrega del metod
+    public static void addAtraccion(String nombre, String zona, int capacidad, int edad_min) {
+        Atraccion atr;
+        atr=new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
+        addAtraccion(atr);
+    };
+
+    //sobrecàrrega del metod
+    public static void addAtraccion(String nombre, String dino, String zona, int capacidad, int edad_min) {
+        Atraccion atr;
+        if (dino!=null)
+        atr=new Atraccion(nombre, Dinosaurio.getDinoFromName(dino), capacidad, edad_min, Zona.getZonaFromName(zona));
+        else atr=new Atraccion(nombre, capacidad, edad_min, Zona.getZonaFromName(zona));
+        addAtraccion(atr);
+    };
+
     public static void addAtraccion(Atraccion atr){
         Integer max = Atraccion.all.keySet().stream()
                                  .mapToInt(Integer::intValue)
@@ -25,13 +42,21 @@ public class Atraccion {
                                  .orElse(0);
         max++;
         Atraccion.all.put(max,atr);
+        /* int dinoId;
+        if (atr.dino==null){
+            dinoId=0;
+        } else {
+            dinoId=atr.getDino().getDinoId();
+        } */
+        int dinoId=(atr.dino==null)?0:atr.getDino().getDinoId();
         Accesdb.agrega("Atraccion",new Object[] {
             "id_atraccion",max,
             "id_zona",atr.getZona().getUbicacionId(),
-            "id_dino",atr.getDino().getDinoId(),
+            "id_dino",dinoId,
             "nombre",atr.getNombre(),
+            "capacidad",atr.getCapacidad(),
             "edad_minima",atr.getEdad()});
-
+        
     }
     private String nombre;
     private Dinosaurio dino;
@@ -45,6 +70,13 @@ public class Atraccion {
         this.edad = edad;
         this.zona = zona;
     }
+    public Atraccion(String nombre, int capacidad, int edad, Zona zona) {
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.edad = edad;
+        this.zona = zona;
+    }
+
     public String getNombre() {
         return nombre;
     }
