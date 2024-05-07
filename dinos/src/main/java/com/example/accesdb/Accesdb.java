@@ -14,8 +14,8 @@ import java.util.Scanner;
 
 public class Accesdb {
 
-    //private final static String bdcon = "jdbc:mysql://localhost:3306/JurassicPark";
-    private final static String bdcon = "jdbc:mysql://localhost:33006/JurassicPark";
+    private final static String bdcon = "jdbc:mysql://localhost:3306/JurassicPark";
+    //private final static String bdcon = "jdbc:mysql://localhost:33006/JurassicPark";
     private final static String us = "root";
     private final static String pw = "root";
    

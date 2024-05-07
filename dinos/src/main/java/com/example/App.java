@@ -16,8 +16,13 @@ public class App extends Application {
     @SuppressWarnings("exports")
     public static Scene scene;
 
+    @SuppressWarnings("exports") //per a poder modificar el titol
+    public static Stage st;
+   
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
+        st=stage;
+        /* st.setTitle("DinoDAM MiquelRR"); */
         scene = new Scene(loadFXML("menuDinos"), 600, 340);
         stage.setScene(scene);
         stage.show();

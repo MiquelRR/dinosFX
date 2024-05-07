@@ -29,6 +29,7 @@ public class menuController {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("tablaDinos.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 850 , 505);
         stage.setScene(scene);
+        stage.setTitle("DinoDAM : Listado de Dinosaurios");
         stage.show();
 
     }
@@ -39,19 +40,22 @@ public class menuController {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("selectorZonas.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 850 , 505);
         stage.setScene(scene);
+        stage.setTitle("DinoDAM : Consulta de atracciones por zona");
         stage.show();
         //App.setRoot("selectorZonas");
     }
 
     @FXML
     void nuevaAtraccion(ActionEvent event) throws IOException {
+        App.st.setTitle("DinoDAM : Alta atracción");
         App.setRoot("nuevaAtracc");
 
     }
 
     @FXML
     void initialize() {
-
+     App.st.setTitle("DinoDAM MiquelRR");
+ 
     }
 
 }
