@@ -8,7 +8,6 @@ module-info.class
 com/example/clases/Zona.class
 com/example/dinoPark.class
 com/example/clases/prova.class
-com/example/Hiperlink.class
 com/example/DinoCriterias.class
 com/example/clases/Dinosaurio.class
 com/example/tablaDinosController.class

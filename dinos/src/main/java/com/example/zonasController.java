@@ -3,8 +3,13 @@ package com.example;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.example.clases.Atraccion;
+import com.example.clases.Zona;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.Image;
@@ -53,25 +58,32 @@ public class zonasController {
     void selectZone(ActionEvent event) {
         Hyperlink zone = (Hyperlink) event.getSource();;
         String z=zone.getId();
-        
+        String cardinalName;        
         switch (z) {
             case "east":
-                System.out.println("este".repeat(30));
+                cardinalName="este";
                 break;
             case "west":
-                System.out.println("oeste".repeat(30));
+                cardinalName="oeste";
                 break;
             case "north":
-                System.out.println("norte".repeat(30));
+                cardinalName="norte";
                 break;
             case "south":
-                System.out.println("sur".repeat(30));
+                cardinalName="sur";
                 break;
             default:
-                System.out.println(event.getSource().toString());
+                cardinalName="";
                 break;
         }
-
+        int idZone=Zona.getIdByCardinalName(cardinalName);
+        Zona zona= Zona.all.get(idZone);
+        String report=Atraccion.getReportAtractionsOfZone(cardinalName);
+        Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("DinoDAM Info System");
+            alert.setHeaderText(" Atracciones en '"+zona.getNombre()+"' al "+zona.getUbicacion());
+            alert.setContentText(report);
+            alert.showAndWait();
     }
 
     @FXML

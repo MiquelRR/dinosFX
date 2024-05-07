@@ -23,18 +23,12 @@ public class Zona {
     }
     public static Zona getZonaFromName(String name){
         for (Zona z : Zona.all.values()) {
-            if(z.getNombre().equals(name)) return z;            
+            if(z.getNombre().equals(name)) return z;
         }
         return null;
 
     }
-
-    public static Integer getIdFromName(String name){
-        for (Integer id : Zona.all.keySet()) {
-            if (Zona.all.get(id).nombre.equals(name)) return id;
-        }
-        return null;
-    }
+   
 
     public static void addZona(Zona zona){
         Integer max = Zona.all.keySet().stream()
@@ -48,6 +42,15 @@ public class Zona {
             "nombre",zona.getNombre(),
             "ubicacion",zona.getUbicacion()});
 
+    }
+
+    public static Integer getIdByCardinalName(String zonaString){
+        for( Integer id : Zona.all.keySet()) {
+            /* System.out.println(">".repeat(50)+zonaString+"/"+Zona.all.get(id).getUbicacion()); */
+            if (Zona.all.get(id).getUbicacion().equals(zonaString)) return id;
+
+        }
+        return 1;
     }
     
     private String nombre;

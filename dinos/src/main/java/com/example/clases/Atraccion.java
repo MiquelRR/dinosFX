@@ -8,7 +8,7 @@ public class Atraccion {
     public static HashMap<Integer, Atraccion> all = new HashMap<>();
     static {
         for (String[] reg : Accesdb.lligTaula("Atraccion")) {
-            Dinosaurio dino=(reg[2]==null)?null:Dinosaurio.all.getOrDefault((Integer.parseInt(reg[2])),null);
+            Dinosaurio dino = (reg[2] == null) ? null : Dinosaurio.all.getOrDefault((Integer.parseInt(reg[2])), null);
             Atraccion atr = new Atraccion(
                     reg[3],
                     dino,
@@ -37,6 +37,25 @@ public class Atraccion {
         addAtraccion(atr);
     };
 
+    public static String getReportAtractionsOfZone(String zoneCardinalName) {
+        int idZona = Zona.getIdByCardinalName(zoneCardinalName);
+        Zona zone = Zona.all.get(idZona);
+        String nameZona = Zona.all.get(idZona).getNombre();
+        String report="";
+        /* report = "Zona '" + nameZona + "' situada al " + zoneCardinalName + "\n";
+        report += "-".repeat(report.length()) + "\n"; */
+        for (Atraccion atr : Atraccion.all.values()) {
+            if (atr.zona.equals(zone)) {
+                report += "'" + atr.nombre + "' capac.: " + atr.capacidad + " edad >" + atr.edad;
+                if (atr.dino != null)
+                    report += " dino : " + atr.dino.getNombre() + "\n";
+                else
+                    report += "\n";
+            }
+        }
+        return report;
+    }
+
     public static void addAtraccion(Atraccion atr) {
         Integer max = Atraccion.all.keySet().stream()
                 .mapToInt(Integer::intValue)
@@ -44,14 +63,14 @@ public class Atraccion {
                 .orElse(0);
         max++;
         Atraccion.all.put(max, atr);
- 
+
         if (atr.dino == null) {
             Accesdb.agrega("Atraccion", new Object[] {
                     "id_atraccion", max,
                     "id_zona", atr.getZona().getUbicacionId(),
                     "nombre", atr.getNombre(),
                     "capacidad", atr.getCapacidad(),
-                    "edad_minima", atr.getEdad() });            
+                    "edad_minima", atr.getEdad() });
         } else {
             Accesdb.agrega("Atraccion", new Object[] {
                     "id_atraccion", max,
