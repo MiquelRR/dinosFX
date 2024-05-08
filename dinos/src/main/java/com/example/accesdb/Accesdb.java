@@ -8,21 +8,33 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
+import com.example.accesdb.LogToFile.LogToFile;
 
 
 
 public class Accesdb {
 
+    private static boolean logMode=false;
+    private static LogToFile bbddlog = new LogToFile("queries");
+
     private final static String bdcon = "jdbc:mysql://localhost:3306/JurassicPark";
     //private final static String bdcon = "jdbc:mysql://localhost:33006/JurassicPark";
     private final static String us = "root";
     private final static String pw = "root";
-   
     public final static String distinctVals = "SELECT DISTINCT %d FROM Dinosaurio;";
 
+
     //public final static String addEmployee="INSERT INTO empleados (nombre, apellidos, telefono, cargo) VALUES ('-', '-', '-', '-', '-');";
-    public static Scanner sc = new Scanner(System.in);
+    //public static Scanner sc = new Scanner(System.in);
+
+    public static void setLogOn(){
+        Accesdb.logMode=true;
+    }
+    public static void setLogOff(){
+        Accesdb.logMode=false;
+    }
+
 
     public static void modifica(String query){
         try {
@@ -30,13 +42,18 @@ public class Accesdb {
             Statement st = con.createStatement();
             st.executeUpdate(query);
             con.close();
+            if(logMode) bbddlog.log("Accesdb.modifica("+query+")");
         } catch (SQLException e) {
-            System.out.println("Error en la bd -modifica-: \n"+query+ "\n" + e.getErrorCode() + "-" + e.getMessage());
-            sc.nextLine();
+            String msg=("Error en la bd -modifica-: \n"+query+ "\n" + e.getErrorCode() + "-" + e.getMessage());
+            if (logMode)
+            bbddlog.log(msg);
+            else
+            System.out.println(msg);
         }
 
     }
     public static String lligString(String query){
+        if(logMode) bbddlog.log("Accesdb.lligString("+query+")");
         return lligReg(query)[0];
     }
 
@@ -55,12 +72,12 @@ public class Accesdb {
                 }
             }
             con.close();
+            if(logMode) bbddlog.log("Accesdb.lligReg("+query+")");
         } catch (SQLException e) {
-            System.out.println(query);
-            System.out.println("Error en la bd -lligReg-: " + e.getErrorCode() + "-" + e.getMessage());
-            sc.nextLine();
+            String msg="Error en la bd -lligReg-: " + e.getErrorCode() + "-" + e.getMessage();
+            if(logMode) bbddlog.log(msg);
+            else System.out.println(msg);
         }
-        
         return eixida;
     }
 
@@ -92,9 +109,11 @@ public class Accesdb {
                 idInsertat = rs.getInt(1); // Obtener el valor de la clave generada
             }
             con.close();
+            if(logMode) bbddlog.log("Accesdb.agrega(..) "+query);
         } catch (SQLException e) {
-            System.out.println(query);
-            System.out.println("Error en la bd -agrega-: " + e.getErrorCode() + "-" + e.getMessage());
+            String msg="Error en la bd -agrega-: " + e.getErrorCode() + "-" + e.getMessage();
+            if (logMode) bbddlog.log(msg);
+            else System.out.println(msg);
             return 0;
 
         }
@@ -118,10 +137,11 @@ public class Accesdb {
                 eixida.add(registre);
             }
             con.close();
+            if (logMode) bbddlog.log("Accesdb.lligtaula("+taula+") ->"+"SELECT * FROM " + taula);
         } catch (SQLException e) {
-            System.out.println("SELECT * FROM " + taula);
-            System.out.println("Error en la bd -lligTaula- : " + e.getErrorCode() + "-" + e.getMessage());
-            sc.nextLine();
+            String msg="Error en la bd -lligTaula- : " + e.getErrorCode() + "-" + e.getMessage();
+            if (logMode) bbddlog.log(msg);
+            else System.out.println(msg);
         }
         return eixida;
     }
@@ -133,8 +153,9 @@ public class Accesdb {
                 eixida.add(Integer.parseInt(str[0]));            
             }
         } catch (Exception e) {
-            System.out.println(query);
-            System.out.println("Error obtenint una lllista de Integer a partir de la query");
+            String msg="lligQuery2Integers(..) Error obtenint una lllista de Integer a partir de la query";
+            if (logMode) bbddlog.log(msg);
+            else System.out.println(msg);
         }
         
         return eixida;
@@ -156,10 +177,11 @@ public class Accesdb {
                 eixida.add(registre);
             }
             con.close();
+            if (logMode) bbddlog.log("Accesdb.lligQuery(..)) ->"+query);
         } catch (SQLException e) {
-            System.out.println(query);
-            System.out.println("Error en la bd -lligQuery-: " + e.getErrorCode() + "-" + e.getMessage());
-            sc.nextLine();
+            String msg="Error en la bd -lligQuery-: " + e.getErrorCode() + "-" + e.getMessage();
+            if (logMode) bbddlog.log(msg);
+            else System.out.println(msg);
         }
         return eixida;
     }
@@ -169,6 +191,9 @@ public class Accesdb {
         try {
             eixida = Integer.parseInt(entrada);
         } catch (ClassCastException e) {
+            String msg="Error en convertir <" + entrada + "> en tipus Integer -" + e.getMessage();
+            if (logMode) bbddlog.log(msg);
+            else System.out.println(msg);
             //System.out.println("Error en convertir <" + entrada + "> en tipus Integer -" + e.getMessage());
            //sc.nextLine();
            return null;

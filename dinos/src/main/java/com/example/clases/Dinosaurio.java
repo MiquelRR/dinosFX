@@ -2,12 +2,16 @@ package com.example.clases;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.example.accesdb.Accesdb;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Dinosaurio {
     public static HashMap<Integer, Dinosaurio> all = new HashMap<>();
@@ -21,20 +25,47 @@ public class Dinosaurio {
     public static List<String> getDinosNames() {
         List<String> nameList = new ArrayList<String>();
         for (Dinosaurio dino : Dinosaurio.all.values()) {
-            nameList.add(dino.nombre.getValue());
+            nameList.add(dino.getNombre());
         }
         return nameList;
     }
-    public static Dinosaurio getDinoFromName(String dinoname){
+    
+    public static Set<String> getSizes() {
+        Set<String> retSet = new HashSet<String>();
         for (Dinosaurio dino : Dinosaurio.all.values()) {
-            if(dino.nombre.getValue().equals(dinoname)) return dino;
+            retSet.add(dino.getTamano());
+        }
+        return retSet;
+    }
+
+    public static Set<String> getFeeding() {
+        Set<String> retSet = new HashSet<String>();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            retSet.add(dino.getAlimentacion());
+        }
+        return retSet;
+    }
+    public static Set<String> getDinoTypes() {
+        Set<String> retSet = new HashSet<String>();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            retSet.add(dino.getTipo());
+        }
+        return retSet;
+    }
+
+    public static Dinosaurio getDinoFromName(String dinoname) {
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            if (dino.nombre.getValue().equals(dinoname))
+                return dino;
         }
         return null;
     }
+    
 
-    public static Integer getIdFromName(String name){
+    public static Integer getIdFromName(String name) {
         for (Integer id : Dinosaurio.all.keySet()) {
-            if (Dinosaurio.all.get(id).nombre.getValue().equals(name)) return id;
+            if (Dinosaurio.all.get(id).nombre.getValue().equals(name))
+                return id;
         }
         return null;
     }
@@ -73,7 +104,7 @@ public class Dinosaurio {
         return found;
     }
 
-    private SimpleStringProperty nombre;
+    private StringProperty nombre;
 
     public void setNombre(String value) {
         nombreProperty().set(value);
@@ -136,5 +167,27 @@ public class Dinosaurio {
             tipo = new SimpleStringProperty(this, "tipo");
         return tipo;
     }
+
+   
+  /*   public static ObservableList<Dinosaurio> getAllDinos(){
+        ObservableList<Dinosaurio> dinoList = FXCollections.observableArrayList();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            dinoList.add(new Dinosaurio(dino.getNombre(), dino.getTipo(), dino.getTamano(), dino.getAlimentacion())); 
+            System.out.println(dino.getNombre()+dino.getTipo()+ dino.getTamano()+ dino.getAlimentacion());           
+        }
+        return dinoList;
+    } */
+
+    public static ObservableList<Dinosaurio> getAllDinos(){
+        ObservableList<Dinosaurio> dinoList = FXCollections.observableArrayList();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            dinoList.add(dino);           
+        }
+        return dinoList;
+    }
+
+
+
+
 
 }

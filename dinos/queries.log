@@ -1,0 +1,67 @@
+2024-05-08T11:10:03.464365481:Opened filelog queries.log
+2024-05-08T11:10:07.958757601:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T11:10:07.988393362:Accesdb.lligtaula(Zona) ->SELECT * FROM Zona
+2024-05-08T11:10:33.962917283:Accesdb.lligtaula(Atraccion) ->SELECT * FROM Atraccion
+2024-05-08T11:10:33.987089204:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,nombre,capacidad,edad_minima) VALUES (23,2,'Atracdino',15,0);
+2024-05-08T11:11:14.296418334:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,id_dino,nombre,capacidad,edad_minima) VALUES (24,1,null,'Cosiqui',78,12);
+2024-05-08T11:13:03.200933105:Opened filelog queries.log
+2024-05-08T11:13:09.545861585:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T11:13:09.568113557:Accesdb.lligtaula(Zona) ->SELECT * FROM Zona
+2024-05-08T11:13:36.555135984:Accesdb.lligtaula(Atraccion) ->SELECT * FROM Atraccion
+2024-05-08T11:13:36.574941736:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,id_dino,nombre,capacidad,edad_minima) VALUES (25,1,null,'CosicaBUs',15,3);
+2024-05-08T11:14:54.864218465:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,id_dino,nombre,capacidad,edad_minima) VALUES (26,1,null,'pepetraccion',1,18);
+2024-05-08T11:22:53.815022597:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,id_dino,nombre,capacidad,edad_minima) VALUES (27,2,1,'poi',1,1);
+2024-05-08T11:24:17.295229826:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,nombre,capacidad,edad_minima) VALUES (28,1,'o',11,2);
+2024-05-08T11:24:57.872971363:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,nombre,capacidad,edad_minima) VALUES (29,1,'dinono',1,1);
+2024-05-08T11:25:25.326494639:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,nombre,capacidad,edad_minima) VALUES (30,3,'npos',5,2);
+2024-05-08T11:25:48.825709231:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,id_dino,nombre,capacidad,edad_minima) VALUES (31,2,1,'oks',1,2);
+2024-05-08T11:26:29.691327223:Accesdb.agrega(..) INSERT INTO Atraccion (id_atraccion,id_zona,nombre,capacidad,edad_minima) VALUES (32,2,'otrakosika',25,1);
+2024-05-08T11:50:29.428518551:Opened filelog queries.log
+2024-05-08T11:50:35.259024058:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:04:37.788363301:Opened filelog queries.log
+2024-05-08T12:04:40.211039170:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:06:23.179829061:Opened filelog queries.log
+2024-05-08T12:06:25.187827412:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:14:21.161622895:Opened filelog queries.log
+2024-05-08T12:14:23.220178082:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:19:13.413328214:Opened filelog queries.log
+2024-05-08T12:19:15.279047032:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:22:48.614835668:Opened filelog queries.log
+2024-05-08T12:22:50.637827459:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:28:11.713645569:Opened filelog queries.log
+2024-05-08T12:28:13.768549640:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:31:23.411725627:Opened filelog queries.log
+2024-05-08T12:31:27.124343688:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:35:11.793591480:Opened filelog queries.log
+2024-05-08T12:35:14.093270529:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T12:45:54.784367508:Opened filelog queries.log
+2024-05-08T12:49:28.619283887:Opened filelog queries.log
+2024-05-08T13:25:41.501041004:Opened filelog queries.log
+2024-05-08T13:25:43.547998657:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T13:27:38.853659909:Opened filelog queries.log
+2024-05-08T13:32:50.216626106:Opened filelog queries.log
+2024-05-08T13:34:59.272325965:Opened filelog queries.log
+2024-05-08T13:39:04.423279432:Opened filelog queries.log
+2024-05-08T13:39:06.496881017:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T13:39:44.698900166:Opened filelog queries.log
+2024-05-08T13:39:47.277867451:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T13:52:59.005151731:Opened filelog queries.log
+2024-05-08T13:53:00.966580796:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T13:54:52.814806423:Accesdb.lligtaula(Zona) ->SELECT * FROM Zona
+2024-05-08T13:55:02.161763731:Opened filelog queries.log
+2024-05-08T13:55:04.287582303:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T13:56:42.548800625:Opened filelog queries.log
+2024-05-08T13:56:44.712597027:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:01:31.624644855:Opened filelog queries.log
+2024-05-08T14:01:33.721652817:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:04:45.852804836:Opened filelog queries.log
+2024-05-08T14:04:48.411579413:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:04:48.436195509:Accesdb.lligtaula(Zona) ->SELECT * FROM Zona
+2024-05-08T14:08:55.234102671:Opened filelog queries.log
+2024-05-08T14:08:58.805672787:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:11:21.504087711:Opened filelog queries.log
+2024-05-08T14:11:23.615002745:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:15:20.964477359:Opened filelog queries.log
+2024-05-08T14:15:23.163284612:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-08T14:22:07.564574067:Opened filelog queries.log
+2024-05-08T14:22:09.697317326:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio

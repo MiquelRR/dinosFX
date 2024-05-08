@@ -1,5 +1,6 @@
 com/example/App.class
 com/example/creaAtraccionController.class
+com/example/accesdb/LogToFile/LogToFile.class
 com/example/PrimaryController.class
 com/example/SecondaryController.class
 com/example/zonasController.class

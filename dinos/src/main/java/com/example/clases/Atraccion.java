@@ -150,7 +150,7 @@ public class Atraccion {
     }
 
     public static void asignarZona(Zona zona, Atraccion atrac) {
-        zona.addAtraccion(atrac);
+         // zona.addAtraccion(atrac); 
     }
 
 }

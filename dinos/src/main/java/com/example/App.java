@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.example.accesdb.Accesdb;
+
 /**
  * JavaFX App
  */
@@ -22,7 +24,7 @@ public class App extends Application {
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         st=stage;
-        /* st.setTitle("DinoDAM MiquelRR"); */
+        Accesdb.setLogOn(); //activem el log de queries
         scene = new Scene(loadFXML("menuDinos"), 600, 340);
         stage.setScene(scene);
         stage.show();

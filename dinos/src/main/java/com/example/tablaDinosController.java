@@ -3,11 +3,19 @@ package com.example;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.clases.Dinosaurio;
+import com.example.clases.Dinosaurio;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
+/* import javafx.scene.control.TableColumn; */
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class tablaDinosController {
@@ -19,28 +27,31 @@ public class tablaDinosController {
     private URL location;
 
     @FXML
-    private ChoiceBox<?> alChoice;
+    private ChoiceBox<String> alChoice;
+
+    @FXML
+    private ChoiceBox<String> tamChoice;
+
+    @FXML
+    private ChoiceBox<String> tipoChoice;
 
     @FXML
     private Button back_button;
 
     @FXML
-    private TableColumn<?, ?> foodCol;
+    private TableView<Dinosaurio> dinoTable;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<Dinosaurio, String> foodCol;
 
     @FXML
-    private TableColumn<?, ?> sizeCol;
+    private TableColumn<Dinosaurio, String> nameCol;
 
     @FXML
-    private ChoiceBox<?> tamChoice;
+    private TableColumn<Dinosaurio, String> sizeCol;
 
     @FXML
-    private ChoiceBox<?> tipoChoice;
-
-    @FXML
-    private TableColumn<?, ?> typeCol;
+    private TableColumn<Dinosaurio, String> typeCol; 
 
     @FXML
     void back(ActionEvent event) throws IOException {
@@ -48,17 +59,20 @@ public class tablaDinosController {
         stage.close();
     }
 
+    
     @FXML
     void initialize() {
-        assert alChoice != null : "fx:id=\"alChoice\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert back_button != null : "fx:id=\"back_button\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert foodCol != null : "fx:id=\"foodCol\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert nameCol != null : "fx:id=\"nameCol\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert sizeCol != null : "fx:id=\"sizeCol\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert tamChoice != null : "fx:id=\"tamChoice\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert tipoChoice != null : "fx:id=\"tipoChoice\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-        assert typeCol != null : "fx:id=\"typeCol\" was not injected: check your FXML file 'tablaDinos.fxml'.";
-
+        tamChoice.getItems().addAll(Dinosaurio.getSizes());
+        alChoice.getItems().addAll(Dinosaurio.getFeeding());
+        tipoChoice.getItems().addAll(Dinosaurio.getDinoTypes());
+        
+        ObservableList<Dinosaurio> lista= Dinosaurio.getAllDinos();
+        dinoTable.setItems(lista);
+        nameCol.setCellValueFactory(new PropertyValueFactory<Dinosaurio,String>("nombre"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<Dinosaurio,String>("tipo"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<Dinosaurio,String>("tamano"));
+        foodCol.setCellValueFactory(new PropertyValueFactory<Dinosaurio,String>("alimentacion"));
+        
     }
 
 }

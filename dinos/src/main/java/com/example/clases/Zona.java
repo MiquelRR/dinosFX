@@ -55,7 +55,7 @@ public class Zona {
     
     private String nombre;
     private String ubicacion;
-    private List<Atraccion> lista = new ArrayList<>();
+   
     public Zona(String nombre, String ubicacion) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -84,11 +84,5 @@ public class Zona {
     }
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-    public int getNum_atracciones() {
-        return this.lista.size();
-    }
-    public void addAtraccion(Atraccion atr){
-        this.lista.add(atr);
     }
 }

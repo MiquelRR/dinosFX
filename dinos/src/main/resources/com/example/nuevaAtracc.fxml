@@ -10,12 +10,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="340.0" maxWidth="600.0" minHeight="340.0" minWidth="600.0" prefHeight="340.0"
-   prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.example.creaAtraccionController">
+<Pane maxHeight="340.0" maxWidth="600.0" minHeight="340.0" minWidth="600.0" prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.creaAtraccionController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="28.0"
-         prefHeight="60.0" prefWidth="246.0" text="DinoDAM">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="28.0" prefHeight="60.0" prefWidth="246.0" text="DinoDAM">
          <font>
             <Font name="Lato Bold" size="42.0" />
          </font>
@@ -24,64 +21,52 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.8799999952316284" green="0.574062705039978"
-                           blue="0.008799999952316284" opacity="0.6499999761581421" />
+                        <Color red="0.8799999952316284" green="0.574062705039978" blue="0.008799999952316284" opacity="0.6499999761581421" />
                      </color>
                   </Stop>
                   <Stop offset="0.006711409395973154">
                      <color>
-                        <Color red="0.8799999952316284" green="0.574062705039978"
-                           blue="0.008799999952316284" opacity="0.6499999761581421" />
+                        <Color red="0.8799999952316284" green="0.574062705039978" blue="0.008799999952316284" opacity="0.6499999761581421" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.5921052694320679" green="0.2604166567325592"
-                           blue="0.2604166567325592" />
+                        <Color red="0.5921052694320679" green="0.2604166567325592" blue="0.2604166567325592" />
                      </color>
                   </Stop>
                </stops>
             </RadialGradient>
          </textFill>
       </Label>
-      <Button layoutX="365.0" layoutY="250.0" mnemonicParsing="false" onAction="#guarda"
-         prefHeight="48.0" prefWidth="197.0" text="Sal y Guarda" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="293.0" layoutY="110.0"
-         prefHeight="32.0" prefWidth="118.0" text="Zona:" textFill="#6f2525">
+      <Button layoutX="365.0" layoutY="250.0" mnemonicParsing="false" onAction="#guarda" prefHeight="48.0" prefWidth="197.0" text="Sal y Guarda" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="293.0" layoutY="110.0" prefHeight="32.0" prefWidth="118.0" text="Zona:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="293.0" layoutY="170.0"
-         prefHeight="32.0" prefWidth="118.0" text="Dinosaurio:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="293.0" layoutY="170.0" prefHeight="32.0" prefWidth="118.0" text="Dinosaurio:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="zonaChoice" layoutX="424.0" layoutY="113.0" prefHeight="24.0"
-         prefWidth="138.0" />
-      <ChoiceBox fx:id="dinoChoice" layoutX="424.0" layoutY="174.0" prefHeight="24.0"
-         prefWidth="138.0" />
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="20.0" layoutY="110.0"
-         prefHeight="32.0" prefWidth="104.0" text="Nombre:" textFill="#6f2525">
+      <ChoiceBox fx:id="zonaChoice" layoutX="424.0" layoutY="113.0" prefHeight="24.0" prefWidth="138.0" />
+      <ChoiceBox fx:id="dinoChoice" layoutX="424.0" layoutY="174.0" prefHeight="24.0" prefWidth="138.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="6.0" layoutY="110.0" prefHeight="32.0" prefWidth="118.0" text="Nombre:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="406.0" layoutY="12.0"
-         prefHeight="32.0" prefWidth="176.0" text="Alta Nueva Atracción" textFill="#838282">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="406.0" layoutY="12.0" prefHeight="32.0" prefWidth="176.0" text="Alta Nueva Atracción" textFill="#838282">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="20.0" layoutY="170.0"
-         prefHeight="32.0" prefWidth="104.0" text="Capacidad:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="6.0" layoutY="170.0" prefHeight="32.0" prefWidth="118.0" text="Capacidad:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="20.0" layoutY="234.0"
-         prefHeight="32.0" prefWidth="104.0" text="Edad mínima:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="6.0" layoutY="234.0" prefHeight="32.0" prefWidth="118.0" text="Edad mínima:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
@@ -89,14 +74,12 @@
       <TextField fx:id="name" layoutX="138.0" layoutY="113.0" />
       <TextField fx:id="cap" layoutX="138.0" layoutY="174.0" onKeyReleased="#testFields" />
       <TextField fx:id="min" layoutX="138.0" layoutY="237.0" onKeyReleased="#testFields" />
-      <Label fx:id="capLabel" layoutX="138.0" layoutY="152.0" prefHeight="18.0" prefWidth="146.0"
-         text="Número entre 0 y 100" textFill="GRAY">
+      <Label fx:id="capLabel" layoutX="138.0" layoutY="152.0" prefHeight="18.0" prefWidth="146.0" text="Número entre 0 y 100" textFill="GRAY">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="minLabel" layoutX="138.0" layoutY="216.0" prefHeight="18.0" prefWidth="146.0"
-         text="Número entre 0 y 18" textFill="GRAY">
+      <Label fx:id="minLabel" layoutX="138.0" layoutY="216.0" prefHeight="18.0" prefWidth="146.0" text="Número entre 0 y 18" textFill="GRAY">
          <font>
             <Font size="12.0" />
          </font>
