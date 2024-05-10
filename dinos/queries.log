@@ -109,3 +109,4 @@
 2024-05-10T11:59:31.948870355:Accesdb.lligtaula(Zona) ->SELECT * FROM Zona
 2024-05-10T11:59:31.979194556:Accesdb.lligtaula(Atraccion) ->SELECT * FROM Atraccion
 2024-05-10T11:59:31.996577591:Accesdb.lligtaula(Dinosaurio) ->SELECT * FROM Dinosaurio
+2024-05-10T12:42:41.789325218:Opened filelog queries.log

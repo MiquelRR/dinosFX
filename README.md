@@ -17,8 +17,10 @@ image credits to @SARAROOM_111
 
 ![contextual buttons](screenShoots/dinoTablecontextualButtons.png)
 
+![some alerts](screenShoots/some_alerts.png)
+
 ![new atracction](screenShoots/newAtracction.png)
 
-![some alerts](screenShoots/some_alerts.png)
+![map selector](screenShoots/mapSelector.png)
 
 [Effects Video](screenShoots/effectsOverview.webm)
