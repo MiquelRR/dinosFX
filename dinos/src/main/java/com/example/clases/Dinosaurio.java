@@ -186,6 +186,19 @@ public class Dinosaurio {
         return dinoList;
     }
 
+    public static ObservableList<Dinosaurio> getSomeDinos(String size, String feed, String type){
+        ObservableList<Dinosaurio> dinoList = FXCollections.observableArrayList();
+        for (Dinosaurio dino : Dinosaurio.all.values()) {
+            boolean cond =
+                (size == null || size.equals(dino.getTamano())) &&
+                (feed == null || feed.equals(dino.getAlimentacion())) &&
+                (type == null || type.equals(dino.getTipo()));
+
+            if(cond) dinoList.add(dino);           
+        }
+        return dinoList;
+    }
+
 
 
 

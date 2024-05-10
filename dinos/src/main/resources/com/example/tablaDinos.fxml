@@ -5,28 +5,26 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="505.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tablaDinosController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tablaDinosController">
    <children>
-      <TableView fx:id="dinoTable" layoutX="321.0" layoutY="54.0" prefHeight="398.0"
-         prefWidth="494.0">
+      <TableView fx:id="dinoTable" layoutX="321.0" layoutY="54.0" prefHeight="398.0" prefWidth="494.0">
          <columns>
-            <TableColumn fx:id="nameCol" prefWidth="116.0" text="Nombre"/>
+            <TableColumn fx:id="nameCol" prefWidth="116.0" text="Nombre" />
             <TableColumn fx:id="typeCol" prefWidth="132.0" text="Tipo" />
             <TableColumn fx:id="sizeCol" prefWidth="125.0" text="Tamaño" />
             <TableColumn fx:id="foodCol" prefWidth="108.0" text="Alimentacion" />
          </columns>
       </TableView>
 
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="49.0"
-         prefHeight="60.0" prefWidth="246.0" text="DinoDAM">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="49.0" prefHeight="60.0" prefWidth="246.0" text="DinoDAM">
          <font>
             <Font name="Lato Bold" size="42.0" />
          </font>
@@ -35,51 +33,49 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.8799999952316284" green="0.574062705039978"
-                           blue="0.008799999952316284" opacity="0.6499999761581421" />
+                        <Color red="0.8799999952316284" green="0.574062705039978" blue="0.008799999952316284" opacity="0.6499999761581421" />
                      </color>
                   </Stop>
                   <Stop offset="0.006711409395973154">
                      <color>
-                        <Color red="0.8799999952316284" green="0.574062705039978"
-                           blue="0.008799999952316284" opacity="0.6499999761581421" />
+                        <Color red="0.8799999952316284" green="0.574062705039978" blue="0.008799999952316284" opacity="0.6499999761581421" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.5921052694320679" green="0.2604166567325592"
-                           blue="0.2604166567325592" />
+                        <Color red="0.5921052694320679" green="0.2604166567325592" blue="0.2604166567325592" />
                      </color>
                   </Stop>
                </stops>
             </RadialGradient>
          </textFill>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="161.0"
-         prefHeight="32.0" prefWidth="118.0" text="Tamaño:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="161.0" prefHeight="32.0" prefWidth="118.0" text="Tamaño:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="221.0"
-         prefHeight="32.0" prefWidth="118.0" text="Alimentación:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="217.0" prefHeight="32.0" prefWidth="118.0" text="Alimentación:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="284.0"
-         prefHeight="32.0" prefWidth="118.0" text="Tipo:" textFill="#6f2525">
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="31.0" layoutY="273.0" prefHeight="32.0" prefWidth="118.0" text="Tipo:" textFill="#6f2525">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="tamChoice" layoutX="162.0" layoutY="164.0" prefHeight="24.0"
-         prefWidth="138.0" />
-      <ChoiceBox fx:id="alChoice" layoutX="162.0" layoutY="221.0" prefHeight="24.0"
-         prefWidth="138.0" />
-      <ChoiceBox fx:id="tipoChoice" layoutX="162.0" layoutY="287.0" prefHeight="24.0"
-         prefWidth="138.0" />
-      <Button fx:id="back_button" layoutX="134.0" layoutY="397.0" mnemonicParsing="false"
-         onAction="#back" text="Volver" />
+      <ChoiceBox fx:id="tamChoice" layoutX="162.0" layoutY="164.0" onAction="#filterTable" prefHeight="24.0" prefWidth="138.0" />
+      <ChoiceBox fx:id="alChoice" layoutX="162.0" layoutY="220.0" onAction="#filterTable" prefHeight="24.0" prefWidth="138.0" />
+      <ChoiceBox fx:id="tipoChoice" layoutX="162.0" layoutY="276.0" onAction="#filterTable" prefHeight="24.0" prefWidth="138.0" />
+      <Button fx:id="back_button" layoutX="134.0" layoutY="397.0" mnemonicParsing="false" onAction="#back" text="&lt; -Volver" />
+      <Button fx:id="refresh_button" onAction="#resetFilters" graphicTextGap="2.0" layoutX="209.0" layoutY="324.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" >
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/reset.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </Pane>

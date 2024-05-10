@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +20,9 @@ public class menuController {
     private URL location;
 
     @FXML
-    void exit(MouseEvent event) {
-        
+    void exit(ActionEvent event) {
+        System.out.println("¡Hasta luego, lukas!");
+        Platform.exit();
     }
 
     @FXML

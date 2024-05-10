@@ -1,14 +1,11 @@
 com/example/App.class
 com/example/creaAtraccionController.class
 com/example/accesdb/LogToFile/LogToFile.class
-com/example/PrimaryController.class
-com/example/SecondaryController.class
 com/example/zonasController.class
 com/example/menuController.class
 module-info.class
 com/example/clases/Zona.class
 com/example/dinoPark.class
-com/example/clases/prova.class
 com/example/DinoCriterias.class
 com/example/clases/Dinosaurio.class
 com/example/tablaDinosController.class
